@@ -6,6 +6,7 @@ function Calculator(skinName) {
 Calculator.prototype.add = function(inputOne, inputTwo) {
   var output = inputOne + inputTwo;
   return output;
+  
 };
 Calculator.prototype.subtract = function(inputOne, inputTwo) {
   var output = inputOne - inputTwo;
@@ -35,7 +36,7 @@ $(document).ready(function() {
     var inputOne = parseInt($('#inputone').val());
     var inputTwo = parseInt($('#inputtwo').val());
     return [inputOne, inputTwo];
-  }
+  };
 
   $("[data-calculation-type]").click(function() {
     // get the value in data-calculation-type from the DOM
@@ -92,6 +93,26 @@ $(document).ready(function(){
     var email = $('#email').val();
     $('#signup').hide();
     $('#solution').prepend('<p>Thank you, ' + email + ' has been added to our list!</p>');
+  });
+});
+
+$(document).ready(function(){
+  $('#time').text(moment());
+});
+
+var apiKey = "5f9b78221ca3f66f8522463f6a93e173";
+
+$(document).ready(function() {
+  $('#weatherLocation').click(function() {
+    var city = $('#location').val();
+    $('#location').val("");
+    $('.showWeather').text("The city you have chosen is " + city + ".");
+    var url = 'http://api.openweathermap.org/data/2.5/weather?q=';
+    $.get(url + city + '&appid=' +  apiKey, function(response) {
+      console.log(response);
+      $('.showWeather').text("The weather in " + city + " is " + response.weather[0].description + ".");
+    });
+    console.log("Notice: The GET request has been made.");
   });
 });
 

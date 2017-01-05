@@ -5,6 +5,7 @@ function Calculator(skinName) {
 Calculator.prototype.add = function(inputOne, inputTwo) {
   var output = inputOne + inputTwo;
   return output;
+  
 };
 Calculator.prototype.subtract = function(inputOne, inputTwo) {
   var output = inputOne - inputTwo;

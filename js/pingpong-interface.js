@@ -8,7 +8,7 @@ $(document).ready(function() {
     var inputOne = parseInt($('#inputone').val());
     var inputTwo = parseInt($('#inputtwo').val());
     return [inputOne, inputTwo];
-  }
+  };
 
   $("[data-calculation-type]").click(function() {
     // get the value in data-calculation-type from the DOM
